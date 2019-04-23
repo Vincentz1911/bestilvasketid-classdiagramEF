@@ -9,7 +9,7 @@ namespace ClassDiagram.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = 192.168.4.224; Initial Catalog = TestDB2; Persist Security Info = True; User ID = hepo; Password = ***********");
+            optionsBuilder.UseSqlServer("Data Source = 192.168.4.224; Initial Catalog = TestDB2; Persist Security Info = True; User ID = hepo; Password = Pass1234");
         }
         //public DbSet<DBDefaults> DBDefaults { get; set; }
         public DbSet<Person> Person { get; set; }
@@ -18,6 +18,7 @@ namespace ClassDiagram.Models
         public DbSet<Laundry> Laundry { get; set; }
         public DbSet<Machine> Machine { get; set; }
         public DbSet<Schedules> Schedules { get; set; }
+
     }
 
     public class DBDefaults
@@ -55,7 +56,7 @@ namespace ClassDiagram.Models
         public bool ChangeScheduleLimit { get; set; }
         public bool IsMaster { get; set; }
         //En adminUser kan have flere vaskerier, men et vaskeri kan godt have flere adminUsers
-        List<Laundry> Laundry = new List<Laundry>(); 
+        public List<Laundry> Laundry = new List<Laundry>(); 
     }
 
     public enum ShowIDEnum { Anonym, Adresse, Navn }
@@ -69,8 +70,8 @@ namespace ClassDiagram.Models
         public DateTime ClosingTime { get; set; }
         public int ScheduleLimit { get; set; }
         public int DefaultDuration { get; set; }
-        List<Address> Addresses = new List<Address>();
-        List<Machine> Machines = new List<Machine>();
+        public List<Address> Addresses = new List<Address>();
+        public List<Machine> Machines = new List<Machine>();
     }
 
     public enum MachineStatusEnum { OK, OutOfOrder, TechnicianCalled }
@@ -81,7 +82,7 @@ namespace ClassDiagram.Models
         public string  Description { get; set; }
         public MachineStatusEnum Status { get; set; }
         public int? MachineDuration { get; set; }
-        List<Schedules> ScheduleList = new List<Schedules>();
+        public List<Schedules> ScheduleList = new List<Schedules>();
     }
 
     public enum ScheduleStatusEnum { Free, Booked, OutOfOrder }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClassDiagram.Migrations
 {
-    public partial class EntityDB : Migration
+    public partial class N1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
